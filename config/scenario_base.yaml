@@ -1,0 +1,60 @@
+# 空港混雑シミュレーション - 基本シナリオ設定
+# ================================================
+
+# 到着分布（切断t分布）
+# 出発120〜20分前の範囲でresampleされる
+arrival:
+  df: 7                           # t分布の自由度
+  mean_min_before_departure: 70   # 出発前の平均到着時間（分）
+  scale: 20                       # スケールパラメータ
+  range_min: 20                   # 最小（出発20分前）
+  range_max: 120                  # 最大（出発120分前）
+
+# 分岐率
+# p_online + p_kiosk + p_counter = 1 になるよう正規化される
+branching:
+  p_online: 0.3           # オンラインチェックイン率
+  p_kiosk: 0.5            # キオスクチェックイン率
+  p_counter: 0.2          # チェックインカウンター率（チェックインのみ）
+  p_baggage: 0.5          # 預け手荷物あり率
+  p_baggage_counter: 0.4  # 預け荷物ありの人が手荷物カウンターを使う率（残りはセルフ）
+
+# グループサイズ設定
+group:
+  p_single: 0.7    # 単独旅客の割合
+  multi_min: 2     # 複数人グループの最小サイズ
+  multi_max: 4     # 複数人グループの最大サイズ
+
+# 設備台数（capacity）
+capacity:
+  checkin_kiosk: 8       # チェックインキオスク台数
+  checkin_counter: 6     # チェックインカウンター数（チェックインのみ）
+  baggage_counter: 4     # 手荷物カウンター数（タグ発券＋預け入れ一括）
+  tag_kiosk: 4           # タグ発券機台数（セルフ預け入れ用）
+  drop_point: 4          # ドロップポイント数（セルフ預け入れ用）
+
+# 処理時間（秒）
+# mean: 平均処理時間, std: 標準偏差
+service_time:
+  checkin_kiosk:
+    mean: 70
+    std: 15
+  checkin_counter:
+    mean: 180
+    std: 40
+  baggage_counter:      # タグ発券＋預け入れ一括のため長め
+    mean: 150
+    std: 35
+  tag_kiosk:
+    mean: 45
+    std: 10
+  drop_point:
+    mean: 120
+    std: 30
+
+# サンプリング設定
+sampling:
+  interval_sec: 10  # 位置サンプリング間隔（秒）
+
+# 乱数シード（再現性のため）
+# random_seed: 42

@@ -1,0 +1,6 @@
+scenario_name,p_online,p_kiosk,p_counter,p_baggage_counter,cap_checkin_kiosk,cap_checkin_counter,cap_baggage_counter,cap_tag_kiosk,cap_drop_point,mean_checkin_kiosk_sec,mean_checkin_counter_sec,mean_baggage_counter_sec,mean_tag_kiosk_sec,mean_drop_point_sec,arrival_df,arrival_mean_min_before_departure,arrival_scale
+base,0.3,0.5,0.2,0.4,8,6,4,4,4,70,180,150,45,120,7,70,20
+high_online,0.5,0.35,0.15,0.4,8,6,4,4,4,70,180,150,45,120,7,70,20
+more_baggage_counter,0.3,0.5,0.2,0.6,8,6,6,4,4,70,180,150,45,120,7,70,20
+more_self_drop,0.3,0.5,0.2,0.2,8,6,4,6,6,70,180,150,45,120,7,70,20
+fast_service,0.3,0.5,0.2,0.4,8,6,4,4,4,50,120,100,30,90,7,70,20

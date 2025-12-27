@@ -110,7 +110,7 @@ def check_password():
     
     def password_entered():
         """パスワードが正しいかチェック"""
-        if (st.session_state["username"] == "admin" and 
+        if (st.session_state["username"] == "sky1234" and 
             st.session_state["password"] == "airportDX"):
             st.session_state["password_correct"] = True
             del st.session_state["password"]  # パスワードをセッションから削除
